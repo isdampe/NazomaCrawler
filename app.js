@@ -29,3 +29,7 @@ wp.getBlogList(connection, function(res){
   wp.getUrls(connection,res);
 
 });
+
+setTimeout(function(){
+  process.exit(0);
+}, 1000 * 60 * 60);

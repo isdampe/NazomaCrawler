@@ -3,7 +3,14 @@ var http = require("http");
 var jsdom = require("jsdom");
 var request = require("request");
 var nodemailer = require("nodemailer");
-var transporter = nodemailer.createTransport();
+var transporter = nodemailer.createTransport("SMTP",{
+    host: config.warn.server,
+    port: config.warn.port,
+    auth: {
+        user: config.warn.user,
+        pass: config.warn.pass
+    }
+});
 
 exports.getBlogList = function(connection, callback) {
 
@@ -92,14 +99,6 @@ exports.checkAmazonProducts = function(connection, blog_id, key) {
             wp.sendWarn(warnObj);
 
           }
-
-          
-          warnObj = {
-            url: "http://" + blogPosts[blog_id].domain + "/?post_id=" + blogPosts[blog_id].data[key].post_id
-          };
-
-          wp.sendWarn(warnObj);
-
 
         });
 
