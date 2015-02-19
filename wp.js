@@ -93,13 +93,13 @@ exports.checkAmazonProducts = function(connection, blog_id, key) {
 
           }
 
-          /* Delete me.
+          
           warnObj = {
             url: "http://" + blogPosts[blog_id].domain + "/?post_id=" + blogPosts[blog_id].data[key].post_id
           };
 
           wp.sendWarn(warnObj);
-          */
+
 
         });
 
